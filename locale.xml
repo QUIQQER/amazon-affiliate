@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<locales>
+  <groups name="quiqqer/amazon-affiliate" datatype="php,js">
+    <locale name="package.title">
+      <de><![CDATA[Amazon Partnerprogramm]]></de>
+      <en><![CDATA[Amazon Affiliate]]></en>
+    </locale>
+  <locale name="package.description"><de><![CDATA[on-Links zu Ihren Partnerprogramm-Links]]></de><en><![CDATA[Converts amazon links to your affiliate program links]]></en></locale></groups>
+</locales>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<events>
+    <event on="onSiteInit" fire="\QUI\AmazonAffiliate\EventHandler::onSiteInit"/>
+    <event on="onRequestOutput" fire="\QUI\AmazonAffiliate\EventHandler::onRequestOutput"/>
+    <event on="onAdminLoadFooter" fire="\QUI\AmazonAffiliate\EventHandler::onAdminLoadFooter" />
+</events>
