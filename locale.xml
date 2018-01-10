@@ -1,9 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <locales>
-  <groups name="quiqqer/amazon-affiliate" datatype="php,js">
-    <locale name="package.title">
-      <de><![CDATA[Amazon Partnerprogramm]]></de>
-      <en><![CDATA[Amazon Affiliate]]></en>
-    </locale>
-  <locale name="package.description"><de><![CDATA[on-Links zu Ihren Partnerprogramm-Links]]></de><en><![CDATA[Converts amazon links to your affiliate program links]]></en></locale></groups>
+    <groups name="quiqqer/amazon-affiliate" datatype="php,js">
+        <locale name="package.title">
+            <de><![CDATA[Amazon Partnerprogramm]]></de>
+            <en><![CDATA[Amazon Affiliate]]></en>
+        </locale>
+        <locale name="package.description">
+            <de><![CDATA[on-Links zu Ihren Partnerprogramm-Links]]></de>
+            <en><![CDATA[Converts amazon links to your affiliate program links]]></en>
+        </locale>
+    </groups>
+
+    <groups name="quiqqer/amazon-affiliate" datatype="php">
+        <locale name="settings.tags.text">
+            <de><![CDATA[Tags]]></de>
+            <en><![CDATA[Tags]]></en>
+        </locale>
+
+        <locale name="settings.tags.title">
+            <de><![CDATA[Tags]]></de>
+            <en><![CDATA[Tags]]></en>
+        </locale>
+
+        <locale name="settings.tags.at.text">
+            <de><![CDATA[.at]]></de>
+            <en><![CDATA[.at]]></en>
+        </locale>
+
+        <locale name="settings.tags.com.text">
+            <de><![CDATA[.com]]></de>
+            <en><![CDATA[.com]]></en>
+        </locale>
+
+        <locale name="settings.tags.de.text">
+            <de><![CDATA[.de]]></de>
+            <en><![CDATA[.de]]></en>
+        </locale>
+
+        <locale name="settings.tags.co_uk.text">
+            <de><![CDATA[.uk]]></de>
+            <en><![CDATA[.uk]]></en>
+        </locale>
+    </groups>
 </locales>

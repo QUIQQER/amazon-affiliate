@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quiqqer>
+    <settings>
+        <config name="plugins/quiqqer/amazon-affiliate">
+            <section name="tags">
+                <conf name="at">
+                    <type><![CDATA[string]]></type>
+                </conf>
+                <conf name="com">
+                    <type><![CDATA[string]]></type>
+                </conf>
+                <conf name="de">
+                    <type><![CDATA[string]]></type>
+                </conf>
+                <conf name="co_uk">
+                    <type><![CDATA[string]]></type>
+                </conf>
+            </section>
+        </config>
+
+        <window name="quiqqer-amazon-affiliate-settings">
+            <title>
+                <locale group="quiqqer/amazon-affiliate" var="package.title"/>
+            </title>
+            <params>
+                <icon>fa fa-amazon</icon>
+            </params>
+
+            <categories>
+                <category name="tags" index="1">
+                    <text>
+                        <locale group="quiqqer/amazon-affiliate" var="settings.tags.text"/>
+                    </text>
+                    <icon>fa fa-tags</icon>
+
+                    <settings name="tags_section">
+                        <title>
+                            <locale group="quiqqer/amazon-affiliate" var="settings.tags.title"/>
+                        </title>
+                        <input conf="tags.at" type="string">
+                            <text>
+                                <locale group="quiqqer/amazon-affiliate" var="settings.tags.at.text"/>
+                            </text>
+                        </input>
+
+                        <input conf="tags.com" type="string">
+                            <text>
+                                <locale group="quiqqer/amazon-affiliate" var="settings.tags.com.text"/>
+                            </text>
+                        </input>
+
+                        <input conf="tags.de" type="string">
+                            <text>
+                                <locale group="quiqqer/amazon-affiliate" var="settings.tags.de.text"/>
+                            </text>
+                        </input>
+
+                        <input conf="tags.co_uk" type="string">
+                            <text>
+                                <locale group="quiqqer/amazon-affiliate" var="settings.tags.co_uk.text"/>
+                            </text>
+                        </input>
+                    </settings>
+                </category>
+            </categories>
+        </window>
+    </settings>
+</quiqqer>

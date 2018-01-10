@@ -2,89 +2,65 @@
 
 namespace QUI\AmazonAffiliate;
 
+/**
+ * Class LinkParser
+ *
+ * @package QUI\AmazonAffiliate
+ *
+ * @author  www.pcsg.de (Jan Wennrich)
+ * @licence For copyright and license information, please view the /LICENSE.md
+ *
+ */
 class LinkParser
 {
+    /**
+     * Define supported domains here
+     */
+    const DOMAINS = array('at', 'com', 'de', 'co.uk');
+
+    /**
+     * Appends Amazon affiliate tags to Amazon URLs in a string
+     *
+     * @param string $string
+     *
+     * @return string
+     */
     public static function parse($string)
     {
-        $de = array('xgf0rum-21', 'xgf0rum-21', 'xgf0rum-21', 'xgforum-21');
-        $uk = array('nxuk-21', 'nxco-21');
+        $Config = \QUI::getPackage('quiqqer/amazon-affiliate')->getConfig();
 
-        $programIDs = array(
-            'co.uk' => $uk[array_rand($uk)],
-            'com'   => 'nxcom-20',
-            'de'    => $de[array_rand($de)],
-            'at'    => $de[array_rand($de)],
-        );
+        // Turn domains into regex OR expression (e.g. "de|at|com|co.uk"
+        $domainsRegex = implode('|', self::DOMAINS);
 
-        $amazonDomains = "de|com|co.uk|at";
+        // Regex gets for all Amazon URLs and their paths under the above defined domains
+        $string = preg_replace_callback(
+            "/http(?:s)?:\/\/(?:www\.)?amazon\.($domainsRegex)\/[\d\w-\._~:\/\?#\[\]@!$&'\(\)\*+,;=`]*/i",
+            function ($matches) use ($Config) {
+                // $matches[0] contains the whole URL and $matches[1] contains the TLD (de, com, etc.)
 
-        if (strstr($string, "amazon.")) {
-            $string = str_replace('http://amazon', 'https://www.amazon', $string);
-            $string = str_replace('http://www.amazon', 'https://www.amazon', $string);
+                $url = $matches[0];
 
-            preg_match("/^https:\/\/www\.amazon\.(" . $amazonDomains . ")\//i", $string, $matches);
-
-            if (count($matches)) {
-                $restlink = preg_replace("/^https:\/\/www\.amazon\.(" . $amazonDomains . ")\//i", '', $string);
-
-                $restlink = html_entity_decode($restlink);
-                $restlink = preg_replace("#(&tag=[\w-]+)#is", '', $restlink);
-                $restlink = preg_replace("#(tag=[\w-]+)#is", '', $restlink);
-
-                if (strpos($restlink, '?') !== false && strpos($restlink, '?') < 200) {
-                    $programID = $programIDs[$matches[1]];
-                    $tag       = preg_replace('/\?/', '?tag=' . $programID . '&', $restlink, 1);
-                    $affili    = "https://www.amazon." . urlencode($matches [1]) . "/" . $tag;
+                // If the URL already has a ?-parameter append a &-parameter, otherwise make it a ?-parameter
+                if (!strpos($url, '?')) {
+                    $tag = '?';
                 } else {
-                    if (strpos($restlink, '?') === false) {
-                        $programID = $programIDs[$matches[1]];
-                        $tag       = preg_replace('/"/', '?tag=' . $programID . '"', $restlink, 1);
-                        $affili    = "https://www.amazon." . urlencode($matches [1]) . "/" . $tag;
-                    } else {
-                        $affili = "https://www.amazon." . urlencode($matches [1]) . '/' . $restlink;
-                    }
+                    $tag = '&';
                 }
 
-                $strarr[$i] = $affili;
-            }
+                // Replace dots in TLD with underscores (e.g. for co.uk) so we can access config value
+                $tld = str_replace('.', '_', $matches[1]);
 
-            for ($i = 0; $i < count($strarr); $i++) {
-                if (strpos($strarr[$i], 'amazon.') === false) {
-                    continue;
-                }
+                // Get the tag for the TLD from the config
+                $tag .= 'tag=' . $Config->getValue('tags', $tld);
 
-                $strarr[$i] = str_replace('http://amazon', 'https://www.amazon', $strarr[$i]);
-                $strarr[$i] = str_replace('http://www.amazon', 'https://www.amazon', $strarr[$i]);
+                // Append the tag to the URL
+                $url = $url . $tag;
 
-                preg_match("/^https:\/\/www\.amazon\.(" . $amazonDomains . ")\//i", $strarr [$i], $matches);
-
-                if (count($matches)) {
-                    $restlink = preg_replace("/^https:\/\/www\.amazon\.(" . $amazonDomains . ")\//i", '', $strarr [$i]);
-
-                    $restlink = html_entity_decode($restlink);
-                    $restlink = preg_replace("#(&tag=[\w-]+)#is", '', $restlink);
-                    $restlink = preg_replace("#(tag=[\w-]+)#is", '', $restlink);
-
-                    if (strpos($restlink, '?') !== false && strpos($restlink, '?') < 200) {
-                        $affili = "https://www.amazon." . urlencode($matches [1]) . "/" . preg_replace('/\?/',
-                                '?tag=' . $programIDs[$matches[1]] . '&', $restlink, 1);
-
-                    } else {
-                        if (strpos($restlink, '?') === false) {
-                            $affili = "https://www.amazon." . urlencode($matches [1]) . "/" . preg_replace('/"/',
-                                    '?tag=' . $programIDs[$matches[1]] . '"', $restlink, 1);
-                        } else {
-
-                            $affili = "https://www.amazon." . urlencode($matches [1]) . '/' . $restlink;
-                        }
-                    }
-
-                    $strarr[$i] = $affili;
-                }
-            }
-
-            $string = implode("[url]", $strarr);
-        }
+                // Final URL which preg_replace uses to replace the found URL
+                return $url;
+            },
+            $string
+        );
 
         return $string;
     }
