@@ -54,7 +54,7 @@ class LinkParser
                 $tag .= 'tag=' . $Config->getValue('tags', $tld);
 
                 // Append the tag to the URL
-                $url = $url . $tag;
+                $url .= $tag;
 
                 // Final URL which preg_replace uses to replace the found URL
                 return $url;
