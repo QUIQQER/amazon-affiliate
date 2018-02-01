@@ -30,7 +30,7 @@ class LinkParser
         $Config = \QUI::getPackage('quiqqer/amazon-affiliate')->getConfig();
 
         // Turn domains into regex OR expression (e.g. "de|at|com|co.uk"
-        $domainsRegex = implode('|', self::DOMAINS);
+        $domainsRegex = str_replace('.','\.', implode('|', self::DOMAINS));
 
         // Regex gets for all Amazon URLs and their paths under the above defined domains
         $string = preg_replace_callback(
@@ -58,6 +58,21 @@ class LinkParser
 
                 // Final URL which preg_replace uses to replace the found URL
                 return $url;
+            },
+            $string
+        );
+
+        $string = preg_replace_callback(
+            "/(?<preview><div data-oembed-url=\"(?<url>http(?:s)?:\/\/(?:www\.)?amazon\.(?<domain>de|com|at|co\.uk)\/[\d\w-\._~:\/\?#\[\]@!$&'\(\)\*+,;=`]*)\">.*<\/script>.*<\/div>)/isU",
+            function ($matches) {
+                // $matches['url'] contains the whole URL and $matches['domain'] contains the TLD (de, com, etc.)
+
+                $url = $matches['url'];
+                $preview = $matches['preview'];
+
+                $replacement = "<a href=\"$url\">$preview</a>";
+
+                return $replacement;
             },
             $string
         );
