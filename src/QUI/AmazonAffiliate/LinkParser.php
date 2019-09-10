@@ -16,7 +16,7 @@ class LinkParser
     /**
      * Define supported domains here
      */
-    const DOMAINS = array('at', 'com', 'de', 'co.uk');
+    const DOMAINS = ['at', 'com', 'de', 'co.uk'];
 
     /**
      * Appends Amazon affiliate tags to Amazon URLs in a string
@@ -30,7 +30,7 @@ class LinkParser
         $Config = \QUI::getPackage('quiqqer/amazon-affiliate')->getConfig();
 
         // Turn domains into regex OR expression (e.g. "de|at|com|co.uk"
-        $domainsRegex = str_replace('.','\.', implode('|', self::DOMAINS));
+        $domainsRegex = str_replace('.', '\.', implode('|', self::DOMAINS));
 
         // Regex gets for all Amazon URLs and their paths under the above defined domains
         $string = preg_replace_callback(
@@ -51,7 +51,7 @@ class LinkParser
                 $tld = str_replace('.', '_', $matches[1]);
 
                 // Get the tag for the TLD from the config
-                $tag .= 'tag=' . $Config->getValue('tags', $tld);
+                $tag .= 'tag='.$Config->getValue('tags', $tld);
 
                 // Append the tag to the URL
                 $url .= $tag;
@@ -67,7 +67,7 @@ class LinkParser
             function ($matches) {
                 // $matches['url'] contains the whole URL and $matches['domain'] contains the TLD (de, com, etc.)
 
-                $url = $matches['url'];
+                $url     = $matches['url'];
                 $preview = $matches['preview'];
 
                 $replacement = "<a href=\"$url\">$preview</a>";
