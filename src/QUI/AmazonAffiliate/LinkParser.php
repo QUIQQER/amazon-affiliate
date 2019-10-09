@@ -27,6 +27,9 @@ class LinkParser
      */
     public static function parse($string)
     {
+        return $string; // preg_replace_callback ist fehler, auskomentiert da uns sonst die seiten um die ohren fliegen, bitte beheben!
+
+
         $Config = \QUI::getPackage('quiqqer/amazon-affiliate')->getConfig();
 
         // Turn domains into regex OR expression (e.g. "de|at|com|co.uk"
