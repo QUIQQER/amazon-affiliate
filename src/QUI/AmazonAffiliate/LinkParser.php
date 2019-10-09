@@ -37,7 +37,7 @@ class LinkParser
 
         // Regex gets for all Amazon URLs and their paths under the above defined domains
         $string = preg_replace_callback(
-            "/http(?:s)?:\/\/(?:www\.)?amazon\.($domainsRegex)\/[\d\w-\._~:\/\?#\[\]@!$&'\(\)\*+,;=`]*/i",
+            "/http(?:s)?:\/\/(?:www\.)?amazon\.($domainsRegex)\/[\d\w\-\._~:\/\?#\[\]@!$&'\(\)\*+,;=`]*/i",
             function ($matches) use ($Config) {
                 // $matches[0] contains the whole URL and $matches[1] contains the TLD (de, com, etc.)
 
@@ -66,7 +66,7 @@ class LinkParser
         );
 
         $string = preg_replace_callback(
-            "/(?<preview><div data-oembed-url=\"(?<url>http(?:s)?:\/\/(?:www\.)?amazon\.(?<domain>de|com|at|co\.uk)\/[\d\w-\._~:\/\?#\[\]@!$&'\(\)\*+,;=`]*)\">.*<\/script>.*<\/div>)/isU",
+            "/(?<preview><div data-oembed-url=\"(?<url>http(?:s)?:\/\/(?:www\.)?amazon\.(?<domain>de|com|at|co\.uk)\/[\d\w\-\._~:\/\?#\[\]@!$&'\(\)\*+,;=`]*)\">.*<\/script>.*<\/div>)/isU",
             function ($matches) {
                 // $matches['url'] contains the whole URL and $matches['domain'] contains the TLD (de, com, etc.)
 
