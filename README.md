@@ -1,42 +1,43 @@
-AmazonAffiliate
-========
+![Amazon Affiliate](bin/images/Readme.jpg)
+---
+Adds Amazon affiliate tags to all Amazon links.
 
-Converts Amazon links to affiliate links
-
-Paketname:
+Package name:
 
     quiqqer/amazon-affiliate
 
 
-Features (Funktionen)
+Features
 --------
+
+- Adds Amazon affiliate tags to all Amazon links
+- Different tags for different domains
 
 
 Installation
 ------------
 
-Der Paketname ist: quiqqer/amazon-affiliate
+The package name is: quiqqer/amazon-affiliate
 
 
-Mitwirken
+Contribute
 ----------
 
-- Issue Tracker: 
-- Source Code: 
+- Project: https://dev.quiqqer.com/quiqqer/amazon-affiliate
+- Issue Tracker: https://dev.quiqqer.com/quiqqer/amazon-affiliate/issues
+- Source Code: https://dev.quiqqer.com/quiqqer/amazon-affiliate/tree/master
+- Community: https://community.quiqqer.com
+- Wiki: https://dev.quiqqer.com/quiqqer/amazon-affiliate/wikis/home
 
 
 Support
 -------
 
-Falls Sie einen Fehler gefunden haben oder Verbesserungen wünschen,
-senden Sie bitte eine E-Mail an support@pcsg.de.
+If you found any flaws, have any wishes or suggestions you can email [support@pcsg.de](mailto:support@pcsg.de) to inform us about your concerns. 
+We will try to respond to your request and forward it to the responsible developer.
 
 
-Lizenz
+License
 -------
 
 GPL-3.0+
-
-
-Entwickler
---------
