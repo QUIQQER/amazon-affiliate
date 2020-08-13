@@ -6,8 +6,8 @@
             <en><![CDATA[Amazon Affiliate]]></en>
         </locale>
         <locale name="package.description">
-            <de><![CDATA[on-Links zu Ihren Partnerprogramm-Links]]></de>
-            <en><![CDATA[Converts amazon links to your affiliate program links]]></en>
+            <de><![CDATA[Fügt allen Amazon-Links Amazon-Partner-Tags hinzu.]]></de>
+            <en><![CDATA[Adds Amazon affiliate tags to all Amazon links.]]></en>
         </locale>
     </groups>
 

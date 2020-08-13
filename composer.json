@@ -1,7 +1,7 @@
 {
     "name": "quiqqer\/amazon-affiliate",
     "type": "quiqqer-module",
-    "description": "Converts Amazon links to your affiliate program links",
+    "description": "Adds Amazon affiliate tags to all Amazon links.",
     "license": "GPL-3.0+",
     "authors": [
         {
