@@ -21,5 +21,9 @@
         </preview>
         -->
 
+        <copyright>
+            <name><![CDATA[PCSG - Computer & Internet Service OHG]]></name>
+            <license><![CDATA[GPL-3.0+]]></license>
+        </copyright>
     </package>
 </quiqqer>

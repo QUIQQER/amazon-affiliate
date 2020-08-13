@@ -35,6 +35,8 @@ senden Sie bitte eine E-Mail an support@pcsg.de.
 Lizenz
 -------
 
+GPL-3.0+
+
 
 Entwickler
 --------
