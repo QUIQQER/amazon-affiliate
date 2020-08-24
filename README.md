@@ -1,4 +1,4 @@
-![Amazon Affiliate](bin/images/Readme.jpg)
+![QUIQQER Affiliate Links for Amazon](bin/images/Readme.jpg)
 ---
 Adds Amazon affiliate tags to all Amazon links.
 
@@ -10,14 +10,14 @@ Package name:
 Features
 --------
 
-- Adds Amazon affiliate tags to all Amazon links
+- Adds your affiliate tag to all Amazon links
 - Different tags for different domains
 
 
 Installation
 ------------
 
-The package name is: quiqqer/amazon-affiliate
+The package name is: `quiqqer/amazon-affiliate`
 
 
 Contribute

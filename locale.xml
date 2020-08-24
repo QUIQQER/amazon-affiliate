@@ -2,8 +2,8 @@
 <locales>
     <groups name="quiqqer/amazon-affiliate" datatype="php,js">
         <locale name="package.title">
-            <de><![CDATA[Amazon Partnerprogramm]]></de>
-            <en><![CDATA[Amazon Affiliate]]></en>
+            <de><![CDATA[QUIQQER Affiliate Links für Amazon]]></de>
+            <en><![CDATA[QUIQQER Affiliate Links for Amazon]]></en>
         </locale>
         <locale name="package.description">
             <de><![CDATA[Fügt allen Amazon-Links Amazon-Partner-Tags hinzu.]]></de>
