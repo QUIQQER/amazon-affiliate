@@ -1,4 +1,6 @@
-![QUIQQER Affiliate Links for Amazon](bin/images/Readme.jpg)
+![QUIQQER Affiliate Links for Amazon](bin/images/Readme.png)  
+
+QUIQQER Amazon Links for Amazon (QUALFA)
 ---
 Adds Amazon affiliate tags to all Amazon links.
 
